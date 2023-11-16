@@ -2,7 +2,10 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // take tile size, rows count , colum count and return fill width and hight
+        // take tile size, rows count , colum count and return
+            //full sheet width and hight
+            // also return 50% (even if not square)
+            // also return 25%, bases on smaller 50%
         // take row number and column number and return (inclusive) top left cord and bottom right cord
         // also return top left cord with width and height (used in godot to identify region
 
