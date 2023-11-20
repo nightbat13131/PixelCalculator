@@ -2,21 +2,49 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.lang.Math;
 public class SpriteSheet {
-    // height x width -- x, y
-    final static int[] powers = {0, 2, 4, 8, 16, 32, 64, 124, 256, 512, 1024};
-    private int spriteWidthPower, spriteHeightPower, rowCount, columnCount;
+    // height x width -- x, y -- rows, columns
+    public Sprite thisSprite;
     final private Scanner input = new Scanner(System.in);
-    private boolean isBinaryLocked = true;
+    private int rowCount = 1, columnCount = 1;
+
+
+
     public SpriteSheet() {
-        promptPowers();
-        verifySpriteSheetSizes();
+        this.thisSprite = new Sprite();
     }
-    public SpriteSheet(int[] intArgs) {
-        set_spriteHeight(intArgs[0]);
-        set_spriteWidth(intArgs[1]);
-        System.out.println("Test A");
-        verifySpriteSheetSizes();
+    public SpriteSheet(Sprite sprite) {
+        this.setThisSprite(sprite);
     }
+
+    public SpriteSheet(int[] intArray) {
+        if (intArray.length >= 2) {
+            Sprite newSprite = new Sprite(intArray[0], intArray[1]);
+            this.setThisSprite(newSprite);
+        }
+        if (intArray.length >= 4) {
+            this.setRowCount(intArray[3]);
+            this.setColumnCount(intArray[4]);
+        }
+        if (intArray.length >4) {
+            for (int i = 4; i < intArray.length; i ++ ) {
+                // get frame for each int here
+
+            }
+        }
+    }
+
+    public void setThisSprite(Sprite thisSprite) {
+        this.thisSprite = thisSprite;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
+    }
+
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+    /*
     public void verifySpriteSheetSizes() {
         final String verityText = "Height Power %d x Width Power %d translates to%n" +
                 "Height %d pixels x Width: %d pixels. Is this correct?%n 1: Yes%n 2: No, swap numbers%n 3: No, new numbers%nChoice: ";
@@ -117,67 +145,24 @@ public class SpriteSheet {
         return outputArray;
     }
 
-    public void promptPowers() {
-        int holder;
-        System.out.println("Values are saved by binary powers: 3 = 8, 6 = 64, 8 = 256");
-        System.out.println("enter Height power");
-        holder = input.nextInt();
-        set_spriteHeight(holder);
-        System.out.println("enter Width power");
-        holder = input.nextInt();
-        set_spriteWidth(holder);
-    }
+    public void setRowCount(int newInt) {if (newInt > 0) this.rowCount = newInt;}
+    public void setColumnCount(int newInt) {if (newInt > 0) this.columnCount = newInt;}
 
-    static int[] validatePower(int testInt) {
-        // return format {true or false as an int, the correct power or -1}
-        int[] returnArray = {0, -1};
-
-        if (testInt < powers.length) {
-            returnArray[0] = 1; returnArray[1] = testInt;}
-        else {
-            for (int i = 0; i < powers.length; i++) {
-                if (testInt == powers[i]) { returnArray[0] = 1; returnArray[1] = powers[i];};
-                    break; }
-            }
-            return returnArray;
-        }
-
-    public void set_spriteWidth(int newInt) {
-        int[] result = validatePower(newInt);
-        if (1 == result[0]) this.spriteWidthPower = result[1];
-    }
-
-    public int get_spriteWidth() {
-        return (int)Math.pow(2, this.spriteWidthPower);
-    }
-    public void set_spriteHeight(int newInt) {
-        int[] result = validatePower(newInt);
-        if (1 == result[0]) this.spriteHeightPower= result[1];
-    }
-
-    public int get_spriteHeight() {
-        return (int)Math.pow(2, this.spriteHeightPower);
-    }
-    public void set_rowCount(int newInt) {if (newInt > 0) this.rowCount = newInt;}
-    public void set_columnCount(int newInt) {if (newInt > 0) this.columnCount = newInt;}
-
-    public int get_halfWidth() {return get_spriteWidth()/2;}
-    public int get_halfHeight() {return get_spriteHeight()/2;}
-    public int get_quarterHeight() {
-        return Math.min(this.get_halfHeight(), this.get_halfWidth())/2;
-    }
-    public int get_sheetWidth() {return this.columnCount*this.get_spriteWidth();}
-    public int get_sheetHeight() {return this.rowCount*this.get_spriteHeight();}
-    public int get_frameNum(int rowNum, int columnNum) {
+    public int getSheetWidth() {return this.columnCount*this.get_spriteWidth();}
+    public int getSheetHeight() {return this.rowCount*this.get_spriteHeight();}
+    public int calculateFrameNum(int rowNum, int columnNum) {
         // input is count not index, just like rowCount & columnCount, but output is index
         return (this.columnCount*(rowNum-1) + (columnNum-1));
     }
 
-    public int[] get_rowColumnFromFrame(int frameNum) {
+    public int[] calculateRowColumnFromFrame(int frameNum) {
         int[] pair = {0, 0}; // row , col
         pair[1] = frameNum % this.columnCount;
         pair[0] = (frameNum - pair[1]) % this.columnCount;
         return pair;
 
     }
+
+
+     */
 }
