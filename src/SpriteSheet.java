@@ -44,6 +44,15 @@ public class SpriteSheet {
     public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
+
+    public int[] getX_Y (int rowNum, int columnNum) {
+        int[] outputArray = {1, 1};
+        outputArray[1] += ((rowNum-1) * this.thisSprite.getSpriteWidth());
+        outputArray[0] += ((columnNum-1) * this.thisSprite.getSpriteHeight());
+        return outputArray;
+    }
+
+
     /*
     public void verifySpriteSheetSizes() {
         final String verityText = "Height Power %d x Width Power %d translates to%n" +
@@ -138,12 +147,7 @@ public class SpriteSheet {
     }
 
 
-    public int[] getX_Y (int rowNum, int columnNum) {
-        int[] outputArray = {1, 1};
-        outputArray[1] += ((rowNum-1) * this.get_spriteWidth());
-        outputArray[0] += ((columnNum-1) * this.get_spriteHeight());
-        return outputArray;
-    }
+
 
     public void setRowCount(int newInt) {if (newInt > 0) this.rowCount = newInt;}
     public void setColumnCount(int newInt) {if (newInt > 0) this.columnCount = newInt;}
@@ -163,6 +167,7 @@ public class SpriteSheet {
 
     }
 
+*/
 
-     */
+
 }

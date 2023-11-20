@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Pixel calculator.iml" filepath="$PROJECT_DIR$/Pixel calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PixelCalculator.iml" filepath="$PROJECT_DIR$/PixelCalculator.iml" />
     </modules>
   </component>
 </project>
