@@ -1,6 +1,5 @@
 package PixelCalculator;
 
-import javax.swing.*;
 import java.lang.Integer;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -14,11 +13,20 @@ public class Main {
         // take row number and column number and return (inclusive) top left cord and bottom right cord
         // also return top left cord with width and height (used in godot to identify region
 
-        SpriteSheet a = new SpriteSheet();
-        System.out.println(a.sprite.modeHelperText());
-        a.sprite.swapMode();
-        System.out.println(a.sprite.modeHelperText());
+        SpriteSheet sheet = new SpriteSheet();
+        System.out.println(sheet.modeHelperText());
+        sheet.swapMode();
+        System.out.println(sheet.modeHelperText());
+        sheet.swapMode();
 
+        Display d = new Display();
+        /* This where moved into the Display() initiation code and it works so far with initial testing
+        d.setContentPane(d.panelPixelForm);
+        d.setTitle("Hello");
+        d.setSize();
+        d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        */
+        d.setVisible(true);
 
     }
 
@@ -30,5 +38,7 @@ public class Main {
         }
         return newArray;
     }
+
+
 
 }

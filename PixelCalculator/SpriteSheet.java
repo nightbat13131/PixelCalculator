@@ -1,17 +1,9 @@
 package PixelCalculator;
 
-public class SpriteSheet {
-    // height x width -- x, y -- rows, columns
-    public Sprite sprite = new Sprite();
-    // final private Scanner input = new Scanner(System.in);
+public class SpriteSheet extends Sprite{
+
     private int rowCount = 2, columnCount = 2;
 
-    public SpriteSheet() {
-        this.setSprite(new Sprite());
-    }
-    public void setSprite(Sprite sprite) {
-        this.sprite = sprite;
-    }
     public void setColumnCount(int columnCount) {
         if (columnCount > 0) {
             this.columnCount = columnCount;
@@ -24,10 +16,6 @@ public class SpriteSheet {
         }
     }
 
-    public Sprite getSprite() {
-        return sprite;
-    }
-
     public int getColumnCount() {
         return columnCount;
     }
@@ -37,25 +25,22 @@ public class SpriteSheet {
     }
 
     public int getXFromRow (int rowNum) {
-        return 1 + ((rowNum-1) * this.sprite.getSpriteWidth());
+        return 1 + ((rowNum-1) * this.getSpriteWidth());
     }
     public int getPaddedXFromRow (int rowNum) {
-        return this.sprite.getPadding() + this.getXFromRow(rowNum);
+        return this.getSpritePadding() + this.getXFromRow(rowNum);
     }
     public int getYFromColumn (int columnNum) {
-        return 1 + ((columnNum-1) * this.sprite.getSpriteHeight());
+        return 1 + ((columnNum-1) * this.getSpriteHeight());
     }
     public int getPaddedYFromColumn (int columnNum) {
-        return this.sprite.getPadding() + this.getYFromColumn(columnNum);
+        return this.getSpritePadding() + this.getYFromColumn(columnNum);
     }
 
-    public String modeHelperText() {return this.sprite.modeHelperText();}
-
-
     public int getSheetWidth() {
-        return this.columnCount*(this.sprite.getHalfWidth() + (2*this.sprite.getPadding() ));}
+        return this.columnCount*(this.getSpriteHalfWidth() + (2*this.getSpritePadding() ));}
     public int getSheetHeight() {
-        return this.rowCount*(this.getSheetHeight() + (2*this.sprite.getPadding()) );}
+        return this.rowCount*(this.getSheetHeight() + (2*this.getSpritePadding()) );}
 
     public int calculateFrameNum(int rowNum, int columnNum) {
         // input is count not index, just like rowCount & columnCount, but output is index
