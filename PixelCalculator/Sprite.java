@@ -4,19 +4,7 @@ import java.util.Scanner;
 public class Sprite {
     // height x width -- x, y
     private boolean isBinaryLocked = true;
-    private int spriteWidthPower, spriteHeightPower, spriteWidth, spriteHeight, padding = 0;
-    final static int[] powers = {0, 2, 4, 8, 16, 32, 64, 124, 256, 512, 1024};
-    final private Scanner input = new Scanner(System.in);
-    public Sprite() {
-        new Sprite(6,6);
-    }
-    public Sprite(int[] intArray) {
-        new Sprite(intArray[0], intArray[1]);
-    }
-    public Sprite(int HeightPower, int WidthPower) {
-        this.setSpriteHeight(HeightPower);
-        this.setSpriteWidth(WidthPower);
-    }
+    private int spriteWidthPower = 6, spriteHeightPower = 6, spriteWidth = 1, spriteHeight= 1, padding = 0;
 
     public void swapMode() {
         this.isBinaryLocked = !this.isBinaryLocked;
@@ -55,18 +43,25 @@ public class Sprite {
         }
     }
 
-    public int getPadding() { return this.padding;   }
+    public int getPaddedWidth() {
+        return (this.padding*2) + this.getSpriteWidth();
+    }
+    public int getPaddedHeight() {
+        return (this.padding*2) + this.getSpriteHeight();
+    }
 
-    public int getHalfWidth() {return getSpriteWidth()/2;}
-    public int getHalfHeight() {return getSpriteHeight()/2;}
-    public int getQuarterHeight() {
+    public int getSpritePadding() { return this.padding;   }
+
+    public int getSpriteHalfWidth() {return getSpriteWidth()/2;}
+    public int getSpriteHalfHeight() {return getSpriteHeight()/2;}
+    public int getSpriteQuarterHeight() {
         return Math.min(this.getSpriteHeight(), this.getSpriteWidth())/4;
     }
 
     @Override
     public String toString() {
-        String outputText = "H: %d pixels x W: %d pixels";
-        return outputText.formatted(getSpriteHeight(), getSpriteWidth());
+        String outputText = "H: %d pixels x W: %d pixels +P: %d";
+        return outputText.formatted(getSpriteHeight(), getSpriteWidth(), getSpritePadding());
     }
 
     public String modeHelperText() {

@@ -14,12 +14,12 @@ public class Main {
         // also return top left cord with width and height (used in godot to identify region
 
         SpriteSheet sheet = new SpriteSheet();
-        System.out.println(sheet.sprite.modeHelperText());
-        sheet.sprite.swapMode();
-        System.out.println(sheet.sprite.modeHelperText());
-        sheet.sprite.swapMode();
+        System.out.println(sheet.modeHelperText());
+        sheet.swapMode();
+        System.out.println(sheet.modeHelperText());
+        sheet.swapMode();
 
-        Display d = new Display(sheet);
+        Display d = new Display();
         /* This where moved into the Display() initiation code and it works so far with initial testing
         d.setContentPane(d.panelPixelForm);
         d.setTitle("Hello");

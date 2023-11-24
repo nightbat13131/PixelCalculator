@@ -56,12 +56,12 @@ public class Display extends JFrame
     private JLabel eeeee;
     private JLabel eeeeee;
      private JLabel outputSheetArt;
-     private SpriteSheet sheet = new SpriteSheet();;
+     private final SpriteSheet sheet = new SpriteSheet();;
 
      public static void main(String[] args) {
 
      }
-    public Display(SpriteSheet sheet) {
+    public Display() {
         String title = "SpriteSheet Pixel Calculator";
         System.out.println("Display.Display test a");
 
