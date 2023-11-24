@@ -1,3 +1,5 @@
+package PixelCalculator;
+
 import java.util.Arrays;
 import java.lang.Integer;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -12,7 +14,7 @@ public class Main {
         // also return top left cord with width and height (used in godot to identify region
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
-
+        System.out.println("Test clone setup");
         if (strArgs.length != 0) {
             System.err.println("!strArgs.length != 0 - true");
             int[] intArgs = toIntArray(strArgs);
