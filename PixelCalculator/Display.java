@@ -55,21 +55,24 @@ public class Display extends JFrame
     private JLabel eeee;
     private JLabel eeeee;
     private JLabel eeeeee;
-    private final String title = "SpriteSheet Pixel Calculator";
-    //private SpriteSheet spriteSheet = new SpriteSheet();
+     private JLabel outputSheetArt;
+     private SpriteSheet sheet = new SpriteSheet();;
 
      public static void main(String[] args) {
 
      }
-    public Display() {
+    public Display(SpriteSheet sheet) {
+        String title = "SpriteSheet Pixel Calculator";
         System.out.println("Display.Display test a");
 
         this.setContentPane(this.panelPixelForm);
+        labelModeHelperText.setText(this.sheet.modeHelperText());
+
         this.setTitle(title);
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setBounds(200, 200, 1000, 500);
 
-        //labelModeHelperText.setText(spriteSheet.modeHelperText());
+
         //createUIComponents() ;
 
 
@@ -77,6 +80,7 @@ public class Display extends JFrame
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                updateUIValues();
                 JOptionPane.showMessageDialog(calculateButton, labelPixelSheetCalculatorLabel.getText() + "Test 10");
             }
         });
@@ -90,6 +94,7 @@ public class Display extends JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
 
+
             }
         });
         anyRadioButton.addActionListener(new ActionListener() {
@@ -99,8 +104,11 @@ public class Display extends JFrame
             }
         });
     }
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+    private void updateUIValues() {
+        System.err.println("Display.updateUIValues");
+
+
     }
+
 
 }

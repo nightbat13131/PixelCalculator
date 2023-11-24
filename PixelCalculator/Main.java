@@ -13,12 +13,13 @@ public class Main {
         // take row number and column number and return (inclusive) top left cord and bottom right cord
         // also return top left cord with width and height (used in godot to identify region
 
-        SpriteSheet a = new SpriteSheet();
-        System.out.println(a.sprite.modeHelperText());
-        a.sprite.swapMode();
-        System.out.println(a.sprite.modeHelperText());
+        SpriteSheet sheet = new SpriteSheet();
+        System.out.println(sheet.sprite.modeHelperText());
+        sheet.sprite.swapMode();
+        System.out.println(sheet.sprite.modeHelperText());
+        sheet.sprite.swapMode();
 
-        Display d = new Display();
+        Display d = new Display(sheet);
         /* This where moved into the Display() initiation code and it works so far with initial testing
         d.setContentPane(d.panelPixelForm);
         d.setTitle("Hello");
@@ -37,5 +38,7 @@ public class Main {
         }
         return newArray;
     }
+
+
 
 }
