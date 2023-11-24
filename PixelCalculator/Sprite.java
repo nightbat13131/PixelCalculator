@@ -10,6 +10,7 @@ public class Sprite {
         this.isBinaryLocked = !this.isBinaryLocked;
     }
     public void setMode(boolean isBinaryLocked) {
+        System.err.println("sprite.setMode");
         this.isBinaryLocked = isBinaryLocked;
     }
 

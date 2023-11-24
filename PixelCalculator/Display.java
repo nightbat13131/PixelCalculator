@@ -66,15 +66,11 @@ public class Display extends JFrame
         System.out.println("Display.Display test a");
 
         this.setContentPane(this.panelPixelForm);
-        labelModeHelperText.setText(this.sheet.modeHelperText());
+        updateModeHelperText();
 
         this.setTitle(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setBounds(200, 200, 1000, 500);
-
-
-        //createUIComponents() ;
-
 
 
         calculateButton.addActionListener(new ActionListener() {
@@ -93,6 +89,8 @@ public class Display extends JFrame
         binaryRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                sheet.setMode(true);
+                updateModeHelperText();
 
 
             }
@@ -100,14 +98,27 @@ public class Display extends JFrame
         anyRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                sheet.setMode(false);
+                updateModeHelperText();
 
             }
         });
+
     }
     private void updateUIValues() {
         System.err.println("Display.updateUIValues");
+        updateModeHelperText();
 
 
+    }
+
+    private void updateModeHelperText() {
+        labelModeHelperText.setText(this.sheet.modeHelperText());
+        widthInput.setText(String.valueOf(this.sheet.getSpriteWidth()));
+        heightInput.setText(String.valueOf(this.sheet.getSpriteHeight()));
+        paddingInput.setText(String.valueOf(this.sheet.getSpritePadding()));
+        rowInput.setText(String.valueOf(this.sheet.getRowCount()));
+        columnInput.setText(String.valueOf(this.sheet.getColumnCount()));
     }
 
 
