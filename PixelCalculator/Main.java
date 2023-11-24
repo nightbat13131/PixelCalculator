@@ -14,7 +14,7 @@ public class Main {
         // also return top left cord with width and height (used in godot to identify region
         // Press Alt+Enter with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
-        System.out.println("Test clone setup");
+        System.out.println("Prepair for GUI test");
         if (strArgs.length != 0) {
             System.err.println("!strArgs.length != 0 - true");
             int[] intArgs = toIntArray(strArgs);
