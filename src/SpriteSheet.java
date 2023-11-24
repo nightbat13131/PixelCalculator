@@ -1,10 +1,9 @@
-import java.util.Arrays;
-import java.util.Scanner;
-import java.lang.Math;
+
+
 public class SpriteSheet {
     // height x width -- x, y -- rows, columns
     public Sprite thisSprite;
-    final private Scanner input = new Scanner(System.in);
+
     private int rowCount = 1, columnCount = 1;
 
 

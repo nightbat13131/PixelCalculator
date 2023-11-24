@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.lang.Integer;
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
 public class Main {
     public static void main(String[] strArgs) {
         // take tile size, rows count , colum count and return

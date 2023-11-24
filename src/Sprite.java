@@ -1,10 +1,10 @@
-import java.util.Scanner;
+
 public class Sprite {
     // height x width -- x, y
     private boolean isBinaryLocked = true;
     private int spriteWidthPower, spriteHeightPower, spriteWidth, spriteHeight;
     final static int[] powers = {0, 2, 4, 8, 16, 32, 64, 124, 256, 512, 1024};
-    final private Scanner input = new Scanner(System.in);
+
      public Sprite() {}
      public Sprite(int[] intArray) {
         this.setSpriteHeight(intArray[0]);
