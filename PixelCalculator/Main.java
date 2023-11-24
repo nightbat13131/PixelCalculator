@@ -1,6 +1,5 @@
 package PixelCalculator;
 
-import javax.swing.*;
 import java.lang.Integer;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -19,6 +18,14 @@ public class Main {
         a.sprite.swapMode();
         System.out.println(a.sprite.modeHelperText());
 
+        Display d = new Display();
+        /* This where moved into the Display() initiation code and it works so far with initial testing
+        d.setContentPane(d.panelPixelForm);
+        d.setTitle("Hello");
+        d.setSize();
+        d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        */
+        d.setVisible(true);
 
     }
 
