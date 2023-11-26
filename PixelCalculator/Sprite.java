@@ -1,6 +1,5 @@
 package PixelCalculator;
 
-import java.util.Scanner;
 public class Sprite {
     // height x width -- x, y
     private boolean isBinaryLocked = true;
@@ -44,10 +43,10 @@ public class Sprite {
         }
     }
 
-    public int getPaddedWidth() {
+    public int getSpritePaddedWidth() {
         return (this.padding*2) + this.getSpriteWidth();
     }
-    public int getPaddedHeight() {
+    public int getSpritePaddedHeight() {
         return (this.padding*2) + this.getSpriteHeight();
     }
 

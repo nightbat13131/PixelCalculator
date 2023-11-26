@@ -42,22 +42,6 @@
           <text value="Individual Sprite"/>
         </properties>
       </component>
-      <component id="1c252" class="javax.swing.JTextField" binding="rowInput">
-        <constraints>
-          <grid row="3" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="5" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="5b725" class="javax.swing.JTextField" binding="columnInput">
-        <constraints>
-          <grid row="4" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="5" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
       <component id="3f2ed" class="javax.swing.JLabel" binding="labelPageDimensions">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -76,7 +60,7 @@
       </component>
       <component id="825f2" class="javax.swing.JLabel" binding="pageHeightDisplay">
         <constraints>
-          <grid row="9" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Label"/>
@@ -112,11 +96,14 @@
       </component>
       <component id="e9e92" class="javax.swing.JComboBox" binding="inputFrameIndex">
         <constraints>
-          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="125" height="30"/>
+          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="10" height="30"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="true"/>
+          <enabled value="true"/>
+        </properties>
       </component>
       <component id="ea08d" class="javax.swing.JLabel" binding="labelWithoutPadding">
         <constraints>
@@ -159,24 +146,6 @@
           <text value="Any"/>
         </properties>
       </component>
-      <component id="116b" class="javax.swing.JLabel" binding="labelSheetRows">
-        <constraints>
-          <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <labelFor value="1c252"/>
-          <text value="Rows:"/>
-        </properties>
-      </component>
-      <component id="3241c" class="javax.swing.JLabel" binding="labelSheetColumns">
-        <constraints>
-          <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <labelFor value="5b725"/>
-          <text value="Columns"/>
-        </properties>
-      </component>
       <component id="9b834" class="javax.swing.JLabel" binding="labelHeight">
         <constraints>
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
@@ -189,7 +158,7 @@
       </component>
       <component id="8b935" class="javax.swing.JLabel" binding="pageWidthDisplay">
         <constraints>
-          <grid row="8" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="140" height="17"/>
           </grid>
         </constraints>
@@ -389,12 +358,12 @@
           <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="72a7d" class="javax.swing.JLabel" binding="outputSheetArt">
+      <component id="72a7d" class="javax.swing.JLabel" binding="outputFrameArt">
         <constraints>
           <grid row="13" column="1" row-span="1" col-span="9" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Sheet art"/>
+          <text value="Frame art"/>
         </properties>
       </component>
       <component id="acc12" class="javax.swing.JLabel" binding="labelSpriteWidth">
@@ -443,6 +412,40 @@
       <component id="175e" class="javax.swing.JTextField" binding="paddingInput">
         <constraints>
           <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="5" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="3241c" class="javax.swing.JLabel" binding="labelSheetColumns">
+        <constraints>
+          <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <labelFor value="5b725"/>
+          <text value="Columns"/>
+        </properties>
+      </component>
+      <component id="5b725" class="javax.swing.JTextField" binding="columnInput">
+        <constraints>
+          <grid row="3" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="5" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="116b" class="javax.swing.JLabel" binding="labelSheetRows">
+        <constraints>
+          <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <labelFor value="1c252"/>
+          <text value="Rows:"/>
+        </properties>
+      </component>
+      <component id="1c252" class="javax.swing.JTextField" binding="rowInput">
+        <constraints>
+          <grid row="4" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="5" height="-1"/>
           </grid>
         </constraints>

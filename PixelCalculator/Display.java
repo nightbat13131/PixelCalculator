@@ -55,7 +55,7 @@ public class Display extends JFrame
     private JLabel eeee;
     private JLabel eeeee;
     private JLabel eeeeee;
-     private JLabel outputSheetArt;
+     private JLabel outputFrameArt;
      private final SpriteSheet sheet = new SpriteSheet();;
 
      public static void main(String[] args) {
@@ -66,16 +66,21 @@ public class Display extends JFrame
         System.out.println("Display.Display test a");
 
         this.setContentPane(this.panelPixelForm);
+        updateFrameSelector();
         updateModeHelperText();
+        updateUIValues();
+
 
         this.setTitle(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setBounds(200, 200, 1000, 500);
 
 
+
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                processInputs();
                 updateUIValues();
                 JOptionPane.showMessageDialog(calculateButton, labelPixelSheetCalculatorLabel.getText() + "Test 10");
             }
@@ -91,8 +96,6 @@ public class Display extends JFrame
             public void actionPerformed(ActionEvent e) {
                 sheet.setMode(true);
                 updateModeHelperText();
-
-
             }
         });
         anyRadioButton.addActionListener(new ActionListener() {
@@ -104,22 +107,63 @@ public class Display extends JFrame
             }
         });
 
+        inputFrameIndex.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
     private void updateUIValues() {
         System.err.println("Display.updateUIValues");
         updateModeHelperText();
+        widthInput.setText(String.valueOf(this.sheet.getSpriteWidth()));
+        heightInput.setText(String.valueOf(this.sheet.getSpriteHeight()));
+        paddingInput.setText(String.valueOf(this.sheet.getSpritePadding()));
+        rowInput.setText(String.valueOf(this.sheet.getRowCount()));
+        columnInput.setText(String.valueOf(this.sheet.getColumnCount()));
+
+        pageWidthDisplay.setText(String.valueOf(this.sheet.getSheetWidth()));
+        pageHeightDisplay.setText(String.valueOf(this.sheet.getSheetHeight()));
+
+        output50Height.setText(String.valueOf(this.sheet.getSpriteHalfHeight()));
+        output50Width.setText(String.valueOf(this.sheet.getSpriteHalfWidth()));
+        output25.setText(String.valueOf(this.sheet.getSpriteQuarterHeight()));
+
+        outputFrameArt.setText(String.valueOf(this.sheet.getFrameMax()));
+
+        outputFrameArt.setText(String.valueOf(getFocusFrame()));
+
+        updateFrameSelector();
+
+    }
+    private void processInputs() {
+         try {
+             this.sheet.setSpriteWidth(Integer.parseInt(this.widthInput.getText()));
+             this.sheet.setSpriteHeight(Integer.parseInt(this.heightInput.getText()));
+             this.sheet.setPadding(Integer.parseInt(this.paddingInput.getText()));
+
+             this.sheet.setRowCount(Integer.parseInt(this.rowInput.getText()));
+             this.sheet.setColumnCount(Integer.parseInt(this.columnInput.getText()));
+         } catch (Exception e) {System.err.println("processInputs failed");}
 
 
     }
 
     private void updateModeHelperText() {
         labelModeHelperText.setText(this.sheet.modeHelperText());
-        widthInput.setText(String.valueOf(this.sheet.getSpriteWidth()));
-        heightInput.setText(String.valueOf(this.sheet.getSpriteHeight()));
-        paddingInput.setText(String.valueOf(this.sheet.getSpritePadding()));
-        rowInput.setText(String.valueOf(this.sheet.getRowCount()));
-        columnInput.setText(String.valueOf(this.sheet.getColumnCount()));
+
     }
 
-
+    private void updateFrameSelector() {
+        int targetValue = this.sheet.getFrameMax();
+        inputFrameIndex.removeAllItems();
+        for (int value = 0; value <= targetValue; value ++){
+            inputFrameIndex.addItem(String.valueOf(value));
+        }
+    }
+    private int getFocusFrame() { // to be used with calculateRowFromFrame, ext
+         String raw = inputFrameIndex.getSelectedItem().toString();
+         return Integer.parseInt(raw);
+    }
 }
