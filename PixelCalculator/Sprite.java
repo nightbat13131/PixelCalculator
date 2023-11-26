@@ -19,7 +19,6 @@ public class Sprite {
         } else {this.spriteWidth = newInt;
         }
     }
-
     public void setSpriteHeight(int newInt) {
         if (this.isBinaryLocked) {
             this.spriteHeightPower = newInt;
@@ -34,7 +33,6 @@ public class Sprite {
             return (int) Math.pow(2, this.spriteWidthPower);
         } else return this.spriteWidth;
     }
-
     public int getSpriteHeight() {
         if (this.isBinaryLocked) {
             return (int) Math.pow(2, this.spriteHeightPower);
