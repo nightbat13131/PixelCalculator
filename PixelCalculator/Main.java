@@ -18,15 +18,24 @@ public class Main {
         sheet.swapMode();
         System.out.println(sheet.modeHelperText());
         sheet.swapMode();
-
-        Display d = new Display();
+        System.err.println(sheet);
+        System.out.println(sheet.calculateRowFromFrame(3));
+        System.out.println(sheet.calculateColumnFromFrame(3));
+        System.out.printf(sheet.drawFrame(0));
+        System.out.printf("%n@%n");
+        System.out.printf(sheet.drawFrame(1));
+        System.out.printf("%n@%n");
+        System.out.printf(sheet.drawFrame(2));
+        System.out.printf("%n@%n");
+        System.out.printf(sheet.drawFrame(3));
+         //Display d = new Display();
         /* This where moved into the Display() initiation code and it works so far with initial testing
         d.setContentPane(d.panelPixelForm);
         d.setTitle("Hello");
         d.setSize();
         d.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         */
-        d.setVisible(true);
+        //d.setVisible(true);
 
     }
 
@@ -38,7 +47,4 @@ public class Main {
         }
         return newArray;
     }
-
-
-
 }

@@ -2,8 +2,9 @@ package PixelCalculator;
 
 public class Sprite {
     // height x width -- x, y
-    private boolean isBinaryLocked = true;
-    private int spriteWidthPower = 6, spriteHeightPower = 6, spriteWidth = 1, spriteHeight= 1, padding = 0;
+    private boolean isBinaryLocked = false;
+
+    private int spriteWidthPower = 6, spriteHeightPower = 6, spriteWidthRaw = 64, spriteHeightRaw = 64;
 
     public void swapMode() {
         this.isBinaryLocked = !this.isBinaryLocked;
@@ -13,59 +14,65 @@ public class Sprite {
         this.isBinaryLocked = isBinaryLocked;
     }
 
-    public void setSpriteWidth(int newInt) {
+    public void setSpriteWidthPower(int newInt) {
+        // can only update with the correct mode on
         if (this.isBinaryLocked) {
             this.spriteWidthPower = newInt;
-        } else {this.spriteWidth = newInt;
         }
     }
-    public void setSpriteHeight(int newInt) {
+    public void setSpriteWidthRaw(int newInt) {
+        // can only update with the correct mode on
+        if (! this.isBinaryLocked) {
+            this.spriteWidthRaw = newInt;
+        }
+    }
+    public void setSpriteHeightPower(int newInt) {
         if (this.isBinaryLocked) {
             this.spriteHeightPower = newInt;
-        } else { this.spriteHeight = newInt;
         }
     }
-    public void setPadding(int padding) {
-        this.padding = padding;
+    public void setSpriteHeightRaw(int newInt) {
+        if (! this.isBinaryLocked) {
+            this.spriteHeightRaw = newInt;
+        }
     }
     public int getSpriteWidth() {
         if (this.isBinaryLocked) {
             return (int) Math.pow(2, this.spriteWidthPower);
-        } else return this.spriteWidth;
+        } else return this.spriteWidthRaw;
     }
+
     public int getSpriteHeight() {
         if (this.isBinaryLocked) {
             return (int) Math.pow(2, this.spriteHeightPower);
         } else {
-            return this.spriteHeight;
+            return this.spriteHeightRaw;
         }
     }
 
-    public int getSpritePaddedWidth() {
-        return (this.padding*2) + this.getSpriteWidth();
-    }
-    public int getSpritePaddedHeight() {
-        return (this.padding*2) + this.getSpriteHeight();
+    public int getSpriteHeightPower() {
+        return spriteHeightPower;
     }
 
-    public int getSpritePadding() { return this.padding;   }
+    public int getSpriteHeightRaw() {
+        return spriteHeightRaw;
+    }
 
+    public int getSpriteWidthPower() {
+        return spriteWidthPower;
+    }
+
+    public int getSpriteWidthRaw() {
+        return spriteWidthRaw;
+    }
     public int getSpriteHalfWidth() {return getSpriteWidth()/2;}
     public int getSpriteHalfHeight() {return getSpriteHeight()/2;}
-    public int getSpriteQuarterHeight() {
-        int initial = Math.min(this.getSpriteHalfHeight(), this.getSpriteHalfWidth());
-        // keep from returning a Quarter less than 8
-        if (initial < 16) {
-            return initial;
-        } else {
-            return initial / 2;
-        }
-    }
-
+    public int getSpriteQuarterHeight() {return getSpriteHeight()/4;}
+    public int getSpriteQuarterWidth() {return getSpriteWidth()/4;}
     @Override
     public String toString() {
-        String outputText = "H: %d pixels x W: %d pixels +P: %d";
-        return outputText.formatted(getSpriteHeight(), getSpriteWidth(), getSpritePadding());
+        String outputText = "H: %d pixels x W: %d pixels ";
+        return outputText.formatted(getSpriteHeight(), getSpriteWidth());
     }
 
     public String modeHelperText() {

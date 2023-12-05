@@ -9,9 +9,9 @@ public class Display extends JFrame
     private JLabel labelPixelSheetCalculatorLabel;
     private JRadioButton binaryRadioButton;
     private JRadioButton anyRadioButton;
-    private JTextField widthInput;
+    private JTextField widthInputRaw;
     private JTextField rowInput;
-    private JTextField heightInput;
+    private JTextField heightInputRaw;
     private JTextField paddingInput;
     private JTextField columnInput;
     private JComboBox inputFrameIndex;
@@ -28,35 +28,31 @@ public class Display extends JFrame
     private JLabel labelModeHelperText;
     private JLabel output50Height;
     private JLabel output50Width;
-    private JLabel output25;
+    private JLabel output25Width;
     private JLabel label25;
     private JLabel labelX;
-    private JLabel labelPaddedX;
-    private JLabel outputPaddedX;
-    private JLabel outputX;
+             private JLabel outputFrameX;
     private JLabel labelY;
-    private JLabel labelPaddedY;
-    private JLabel labelPageDimensions;
+             private JLabel labelPageDimensions;
     private JLabel labelPageWidth;
     private JPanel panelPixelForm;
     private JLabel labelFocusFrame;
-    private JLabel labelWithoutPadding;
-    private JLabel labelWithPadding;
-    private JLabel labelPadding;
-    private JLabel labelHeight;
+             private JLabel labelHeight;
     private JLabel labelGuideLines;
-    private JLabel label50Width;
-    private JLabel label50Height;
-    private JLabel outputY;
-    private JLabel outputPaddedY;
-    private JLabel e;
-    private JLabel ee;
-    private JLabel eee;
-    private JLabel eeee;
-    private JLabel eeeee;
-    private JLabel eeeeee;
-     private JLabel outputFrameArt;
-     private final SpriteSheet sheet = new SpriteSheet();;
+    private JLabel label50;
+             private JLabel outputFrameY;
+             private JLabel label100;
+             private JLabel outputSpriteWidth;
+             private JLabel outputFrameArt;
+             private JTextField widthPowerInput;
+             private JTextField heightPowerInput;
+             private JLabel output25Height;
+             private JLabel outputSpriteHeight;
+             private JLabel labelRowFrame;
+             private JLabel labelColumnFrame;
+             private JLabel outputRowFrame;
+             private JLabel outputColumnFrame;
+             private final SpriteSheet sheet = new SpriteSheet();;
 
      public static void main(String[] args) {
 
@@ -67,15 +63,11 @@ public class Display extends JFrame
 
         this.setContentPane(this.panelPixelForm);
         updateFrameSelector();
-        updateModeHelperText();
         updateUIValues();
-
 
         this.setTitle(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setBounds(200, 200, 1000, 500);
-
-
 
         calculateButton.addActionListener(new ActionListener() {
             @Override
@@ -94,14 +86,12 @@ public class Display extends JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 sheet.setMode(true);
-                updateModeHelperText();
-            }
+                     }
         });
         anyRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 sheet.setMode(false);
-                updateModeHelperText();
 
             }
         });
@@ -115,44 +105,48 @@ public class Display extends JFrame
     }
     private void updateUIValues() {
         System.err.println("Display.updateUIValues");
-        updateModeHelperText();
-        widthInput.setText(String.valueOf(this.sheet.getSpriteWidth()));
-        heightInput.setText(String.valueOf(this.sheet.getSpriteHeight()));
-        paddingInput.setText(String.valueOf(this.sheet.getSpritePadding()));
+
+        widthInputRaw.setText(String.valueOf(this.sheet.getSpriteWidthRaw()));
+        heightInputRaw.setText(String.valueOf(this.sheet.getSpriteHeightRaw()));
+        widthPowerInput.setText(String.valueOf(this.sheet.getSpriteWidthPower()));
+        heightPowerInput.setText(String.valueOf(this.sheet.getSpriteHeightPower()));
         rowInput.setText(String.valueOf(this.sheet.getRowCount()));
         columnInput.setText(String.valueOf(this.sheet.getColumnCount()));
-
+        // page dimensions
         pageWidthDisplay.setText(String.valueOf(this.sheet.getSheetWidth()));
         pageHeightDisplay.setText(String.valueOf(this.sheet.getSheetHeight()));
-
+        //100%
+        outputSpriteHeight.setText(String.valueOf(this.sheet.getSpriteHeight()));
+        outputSpriteWidth.setText(String.valueOf(this.sheet.getSpriteWidth()));
+        //50%
         output50Height.setText(String.valueOf(this.sheet.getSpriteHalfHeight()));
         output50Width.setText(String.valueOf(this.sheet.getSpriteHalfWidth()));
-        output25.setText(String.valueOf(this.sheet.getSpriteQuarterHeight()));
+        //25%
+        output25Width.setText(String.valueOf(this.sheet.getSpriteQuarterWidth()));
+        output25Height.setText(String.valueOf(this.sheet.getSpriteQuarterHeight()));
+        // frame
+        int frame = getFocusFrame();
+        outputFrameX.setText(String.valueOf(this.sheet.getXFromFrame(frame)));
+        outputFrameY.setText(String.valueOf(this.sheet.getYFromFrame(frame)));
+        outputColumnFrame.setText(String.valueOf(this.sheet.calculateColumnFromFrame(frame)));
+        outputRowFrame.setText(String.valueOf(this.sheet.calculateRowFromFrame(frame)));
 
-        outputFrameArt.setText(String.valueOf(this.sheet.getFrameMax()));
-
-        outputFrameArt.setText(String.valueOf(getFocusFrame()));
+        outputFrameArt.setText(String.valueOf(getFocusFrame()));  // eventually replaced with art
 
         updateFrameSelector();
-
     }
     private void processInputs() {
          try {
-             this.sheet.setSpriteWidth(Integer.parseInt(this.widthInput.getText()));
-             this.sheet.setSpriteHeight(Integer.parseInt(this.heightInput.getText()));
-             this.sheet.setPadding(Integer.parseInt(this.paddingInput.getText()));
+             this.sheet.setSpriteWidthRaw(Integer.parseInt(this.widthInputRaw.getText()));
+             this.sheet.setSpriteHeightRaw(Integer.parseInt(this.heightInputRaw.getText()));
+             this.sheet.setSpriteWidthPower(Integer.parseInt(this.widthPowerInput.getText()));
+             this.sheet.setSpriteHeightPower(Integer.parseInt(this.heightPowerInput.getText()));
 
              this.sheet.setRowCount(Integer.parseInt(this.rowInput.getText()));
              this.sheet.setColumnCount(Integer.parseInt(this.columnInput.getText()));
          } catch (Exception e) {System.err.println("processInputs failed");}
-
-
     }
 
-    private void updateModeHelperText() {
-        labelModeHelperText.setText(this.sheet.modeHelperText());
-
-    }
 
     private void updateFrameSelector() {
         int targetValue = this.sheet.getFrameMax();
@@ -165,4 +159,8 @@ public class Display extends JFrame
          String raw = inputFrameIndex.getSelectedItem().toString();
          return Integer.parseInt(raw);
     }
-}
+
+             private void createUIComponents() {
+                 // TODO: place custom component creation code here
+             }
+         }
