@@ -1,6 +1,5 @@
 package PixelCalculator;
 
-import java.util.Scanner;
 public class Sprite {
     // height x width -- x, y
     private boolean isBinaryLocked = true;
@@ -10,6 +9,7 @@ public class Sprite {
         this.isBinaryLocked = !this.isBinaryLocked;
     }
     public void setMode(boolean isBinaryLocked) {
+        System.err.println("sprite.setMode");
         this.isBinaryLocked = isBinaryLocked;
     }
 
@@ -19,7 +19,6 @@ public class Sprite {
         } else {this.spriteWidth = newInt;
         }
     }
-
     public void setSpriteHeight(int newInt) {
         if (this.isBinaryLocked) {
             this.spriteHeightPower = newInt;
@@ -34,7 +33,6 @@ public class Sprite {
             return (int) Math.pow(2, this.spriteWidthPower);
         } else return this.spriteWidth;
     }
-
     public int getSpriteHeight() {
         if (this.isBinaryLocked) {
             return (int) Math.pow(2, this.spriteHeightPower);
@@ -43,10 +41,10 @@ public class Sprite {
         }
     }
 
-    public int getPaddedWidth() {
+    public int getSpritePaddedWidth() {
         return (this.padding*2) + this.getSpriteWidth();
     }
-    public int getPaddedHeight() {
+    public int getSpritePaddedHeight() {
         return (this.padding*2) + this.getSpriteHeight();
     }
 
@@ -55,7 +53,13 @@ public class Sprite {
     public int getSpriteHalfWidth() {return getSpriteWidth()/2;}
     public int getSpriteHalfHeight() {return getSpriteHeight()/2;}
     public int getSpriteQuarterHeight() {
-        return Math.min(this.getSpriteHeight(), this.getSpriteWidth())/4;
+        int initial = Math.min(this.getSpriteHalfHeight(), this.getSpriteHalfWidth());
+        // keep from returning a Quarter less than 8
+        if (initial < 16) {
+            return initial;
+        } else {
+            return initial / 2;
+        }
     }
 
     @Override

@@ -1,5 +1,8 @@
 package PixelCalculator;
 
+import java.util.stream.IntStream;
+import java.util.List;
+
 public class SpriteSheet extends Sprite{
 
     private int rowCount = 2, columnCount = 2;
@@ -38,9 +41,9 @@ public class SpriteSheet extends Sprite{
     }
 
     public int getSheetWidth() {
-        return this.columnCount*(this.getSpriteHalfWidth() + (2*this.getSpritePadding() ));}
+        return this.columnCount*(this.getSpritePaddedWidth());}
     public int getSheetHeight() {
-        return this.rowCount*(this.getSheetHeight() + (2*this.getSpritePadding()) );}
+        return this.rowCount*(this.getSpritePaddedHeight());}
 
     public int calculateFrameNum(int rowNum, int columnNum) {
         // input is count not index, just like rowCount & columnCount, but output is index
@@ -55,4 +58,7 @@ public class SpriteSheet extends Sprite{
 
     }
 
+    public int getFrameMax() {
+        return -1 + (this.getColumnCount() * this.getRowCount());
+    }
 }
