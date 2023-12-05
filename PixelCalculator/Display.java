@@ -82,7 +82,6 @@ public class Display extends JFrame
             public void actionPerformed(ActionEvent e) {
                 processInputs();
                 updateUIValues();
-                JOptionPane.showMessageDialog(calculateButton, labelPixelSheetCalculatorLabel.getText() + "Test 10");
             }
         });
         inputFrameIndex.addActionListener(new ActionListener() {

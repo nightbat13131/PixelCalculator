@@ -190,38 +190,6 @@
           <text value="Guide Lines"/>
         </properties>
       </component>
-      <component id="93fcf" class="javax.swing.JLabel" binding="label50Width">
-        <constraints>
-          <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="50% Width"/>
-        </properties>
-      </component>
-      <component id="80d7c" class="javax.swing.JLabel" binding="label50Height">
-        <constraints>
-          <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="50% Heigth"/>
-        </properties>
-      </component>
-      <component id="d3dc7" class="javax.swing.JLabel" binding="output50Height">
-        <constraints>
-          <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Label"/>
-        </properties>
-      </component>
-      <component id="efca3" class="javax.swing.JLabel" binding="output50Width">
-        <constraints>
-          <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Label"/>
-        </properties>
-      </component>
       <component id="4144b" class="javax.swing.JLabel" binding="label25">
         <constraints>
           <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -450,6 +418,38 @@
           </grid>
         </constraints>
         <properties/>
+      </component>
+      <component id="80d7c" class="javax.swing.JLabel" binding="label50Height">
+        <constraints>
+          <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="50% Heigth"/>
+        </properties>
+      </component>
+      <component id="93fcf" class="javax.swing.JLabel" binding="label50Width">
+        <constraints>
+          <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="50% Width"/>
+        </properties>
+      </component>
+      <component id="d3dc7" class="javax.swing.JLabel" binding="output50Height">
+        <constraints>
+          <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Label"/>
+        </properties>
+      </component>
+      <component id="efca3" class="javax.swing.JLabel" binding="output50Width">
+        <constraints>
+          <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Label"/>
+        </properties>
       </component>
     </children>
   </grid>

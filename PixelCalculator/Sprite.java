@@ -53,7 +53,13 @@ public class Sprite {
     public int getSpriteHalfWidth() {return getSpriteWidth()/2;}
     public int getSpriteHalfHeight() {return getSpriteHeight()/2;}
     public int getSpriteQuarterHeight() {
-        return Math.min(this.getSpriteHeight(), this.getSpriteWidth())/4;
+        int initial = Math.min(this.getSpriteHalfHeight(), this.getSpriteHalfWidth());
+        // keep from returning a Quarter less than 8
+        if (initial < 16) {
+            return initial;
+        } else {
+            return initial / 2;
+        }
     }
 
     @Override
